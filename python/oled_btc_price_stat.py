@@ -22,6 +22,8 @@
 # THE SOFTWARE.
 
 # Description: BTC price status script for usage with the Adafruit PiOLED (128x32)
+# CircuitPython installation required
+# See: https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
  
 import time
 import subprocess
