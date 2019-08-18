@@ -11,10 +11,10 @@ import (
 
 func main() {
 
-	gpioPIN = "11"
+	gpioPin = "11"
 
 	rpi := raspi.NewAdaptor()
-	led := gpio.NewLedDriver(rpi, gpioPIN)
+	led := gpio.NewLedDriver(rpi, gpioPin)
 
 	master := gobot.NewMaster()
 
