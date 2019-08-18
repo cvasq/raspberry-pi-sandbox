@@ -18,6 +18,7 @@ func main() {
 	a.Debug()
 	a.Start()
 
+	// curl localhost:3000/api/commands/led_toggle
 	master.AddCommand("led_toggle",
 		func(params map[string]interface{}) interface{} {
 			led.Toggle()
