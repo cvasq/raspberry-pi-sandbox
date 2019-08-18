@@ -15,6 +15,8 @@ func main() {
 
 	rpi := raspi.NewAdaptor()
 	led := gpio.NewLedDriver(rpi, gpioPin)
+	// Turn off LED on exit
+	defer led.Off()
 
 	master := gobot.NewMaster()
 
