@@ -1,3 +1,5 @@
+// Starts an API service on port 3000 for toggling an LED light
+// Toggle via CLI: curl localhost:3000/api/commands/led_toggle
 package main
 
 import (
@@ -9,8 +11,10 @@ import (
 
 func main() {
 
+	gpioPIN = "11"
+
 	rpi := raspi.NewAdaptor()
-	led := gpio.NewLedDriver(rpi, "11")
+	led := gpio.NewLedDriver(rpi, gpioPIN)
 
 	master := gobot.NewMaster()
 
@@ -18,7 +22,7 @@ func main() {
 	a.Debug()
 	a.Start()
 
-	// curl localhost:3000/api/commands/led_toggle
+	// Create the /api/commands/led_toggle endpoint
 	master.AddCommand("led_toggle",
 		func(params map[string]interface{}) interface{} {
 			led.Toggle()
@@ -26,5 +30,4 @@ func main() {
 		})
 
 	master.Start()
-
 }
